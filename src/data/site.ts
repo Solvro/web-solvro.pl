@@ -33,6 +33,14 @@ export const projects: ProjectLink[] = [
       "Obsługa wydarzeń od zapisów po wejściówki. Rejestracja uczestników, listy, komunikacja mailowa i odprawa na miejscu.",
     tags: ["Wydarzenia", "Zapisy"],
   },
+  {
+    name: "PromoCHATor",
+    url: "https://promochator.solvro.pl",
+    host: "promochator.solvro.pl",
+    description:
+      "Znajdź promotora pracy dyplomowej. Opisz temat, a system dobierze prowadzących z PWr, których dorobek naukowy najlepiej do niego pasuje.",
+    tags: ["Praca dyplomowa", "AI"],
+  },
 ];
 
 export interface SocialLink {
