@@ -1,6 +1,6 @@
 # solvro.pl
 
-Wizytówka Koła Naukowego Solvro pod domeną `solvro.pl` — zbiór linków do strony
+Wizytówka Koła Naukowego Solvro pod domeną `solvro.pl` - zbiór linków do strony
 głównej koła (`solvro.pwr.edu.pl`), projektów i social mediów.
 
 Domena wcześniej przekierowywała na `solvro.pwr.edu.pl`, przez co Google

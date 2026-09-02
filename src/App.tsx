@@ -40,7 +40,7 @@ function App() {
           Solvro
         </h1>
         <p className="mt-4 max-w-xl text-base text-pretty text-muted-foreground sm:text-lg">
-          Budujemy oprogramowanie, które realnie ułatwia studiowanie na PWr — od
+          Budujemy oprogramowanie, które realnie ułatwia studiowanie na PWr - od
           układania planu zajęć, przez naukę do sesji, po organizację wydarzeń.
         </p>
       </header>
@@ -51,7 +51,7 @@ function App() {
         </h2>
         <a
           href={MAIN_SITE}
-          className="group block rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/20 to-transparent p-6 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none sm:p-8"
+          className="group block rounded-2xl border border-primary/40 bg-linear-to-br from-primary/20 to-transparent p-6 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none sm:p-8"
         >
           <div className="flex items-center justify-between gap-4">
             <div>
@@ -134,8 +134,8 @@ function App() {
         <p className="text-sm text-pretty text-muted-foreground">
           Solvro to koło naukowe działające przy Wydziale Informatyki i
           Telekomunikacji Politechniki Wrocławskiej. Pracujemy w zespołach
-          projektowych — frontend, backend, mobile, design i&nbsp;zarządzanie
-          projektem — dowożąc aplikacje, które trafiają do realnych
+          projektowych - frontend, backend, mobile, design i&nbsp;zarządzanie
+          projektem - dowożąc aplikacje, które trafiają do realnych
           użytkowników, a nie do szuflady. Nasz kod powstaje otwarcie
           i&nbsp;jest dostępny na GitHubie.
         </p>
