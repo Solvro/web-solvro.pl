@@ -51,6 +51,7 @@ function App() {
         </h2>
         <a
           href={MAIN_SITE}
+          data-umami-event="main-site-hero"
           className="group block rounded-2xl border border-primary/40 bg-linear-to-br from-primary/20 to-transparent p-6 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none sm:p-8"
         >
           <div className="flex items-center justify-between gap-4">
@@ -89,6 +90,7 @@ function App() {
                 <CardContent className="p-5 sm:p-6">
                   <a
                     href={project.url}
+                    data-umami-event={`project-${project.name.toLowerCase()}`}
                     className="group block rounded-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
                   >
                     <div className="flex items-start justify-between gap-4">
@@ -120,7 +122,7 @@ function App() {
         </ul>
 
         <Button asChild variant="outline" className="w-full">
-          <a href="https://github.com/Solvro">
+          <a href="https://github.com/Solvro" data-umami-event="github-org">
             Zobacz wszystkie projekty na GitHubie
             <ExternalLink />
           </a>
@@ -165,6 +167,7 @@ function App() {
             <li key={social.name}>
               <a
                 href={social.url}
+                data-umami-event={`social-${social.name.toLowerCase()}`}
                 className="group flex items-center gap-3 rounded-xl border border-border/60 bg-card/40 p-4 transition-colors hover:border-primary/50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
               >
                 <SocialIcon
@@ -193,7 +196,11 @@ function App() {
         <p className="text-xs text-pretty text-muted-foreground">
           solvro.pl to nasza wizytówka i&nbsp;domena projektów. Pełne informacje
           o&nbsp;kole znajdziesz na{" "}
-          <a href={MAIN_SITE} className="text-primary hover:underline">
+          <a
+            href={MAIN_SITE}
+            data-umami-event="main-site-footer"
+            className="text-primary hover:underline"
+          >
             solvro.pwr.edu.pl
           </a>
           .
