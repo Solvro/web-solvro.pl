@@ -9,3 +9,4 @@ RUN --mount=type=cache,dst=/root/.local/share/pnpm/store \
 
 FROM docker.io/library/nginx:alpine
 COPY --from=builder /source/dist /usr/share/nginx/html/
+COPY nginx.conf /etc/nginx/conf.d/default.conf
