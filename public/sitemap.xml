@@ -6,7 +6,17 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://solvro.pl/planer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://planer.solvro.pl/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://solvro.pl/testownik</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -16,7 +26,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://solvro.pl/eventownik</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://eventownik.solvro.pl/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://solvro.pl/promochator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

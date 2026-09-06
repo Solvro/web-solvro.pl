@@ -2,6 +2,7 @@ export const MAIN_SITE = "https://solvro.pwr.edu.pl";
 
 export interface ProjectLink {
   name: string;
+  slug: string;
   url: string;
   host: string;
   description: string;
@@ -11,6 +12,7 @@ export interface ProjectLink {
 export const projects: ProjectLink[] = [
   {
     name: "Planer",
+    slug: "planer",
     url: "https://planer.solvro.pl",
     host: "planer.solvro.pl",
     description:
@@ -19,6 +21,7 @@ export const projects: ProjectLink[] = [
   },
   {
     name: "Testownik",
+    slug: "testownik",
     url: "https://testownik.solvro.pl",
     host: "testownik.solvro.pl",
     description:
@@ -27,6 +30,7 @@ export const projects: ProjectLink[] = [
   },
   {
     name: "Eventownik",
+    slug: "eventownik",
     url: "https://eventownik.solvro.pl",
     host: "eventownik.solvro.pl",
     description:
@@ -35,6 +39,7 @@ export const projects: ProjectLink[] = [
   },
   {
     name: "PromoCHATor",
+    slug: "promochator",
     url: "https://promochator.solvro.pl",
     host: "promochator.solvro.pl",
     description:
