@@ -1,11 +1,11 @@
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Newspaper } from "lucide-react";
 
 import { SocialIcon } from "@/components/social-icon";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { MAIN_SITE, projects, socials } from "@/data/site";
+import { BLOG, MAIN_SITE, PORTFOLIO, projects, socials } from "@/data/site";
 
 const facts = [
   {
@@ -122,6 +122,12 @@ function App() {
         </ul>
 
         <Button asChild variant="outline" className="w-full">
+          <a href={PORTFOLIO} data-umami-event="portfolio">
+            I wiele więcej w naszym portfolio
+            <ArrowUpRight />
+          </a>
+        </Button>
+        <Button asChild variant="outline" className="w-full">
           <a href="https://github.com/Solvro" data-umami-event="github-org">
             Zobacz wszystkie projekty na GitHubie
             <ExternalLink />
@@ -163,6 +169,22 @@ function App() {
           Znajdź nas w sieci
         </h2>
         <ul className="grid gap-3 sm:grid-cols-2">
+          <li>
+            <a
+              href={BLOG}
+              data-umami-event="blog"
+              className="group flex items-center gap-3 rounded-xl border border-border/60 bg-card/40 p-4 transition-colors hover:border-primary/50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
+              <Newspaper className="size-5 shrink-0 text-primary" />
+              <div className="min-w-0">
+                <p className="text-sm font-medium">Blog</p>
+                <p className="truncate text-xs text-muted-foreground">
+                  Nowości z koła
+                </p>
+              </div>
+              <ArrowUpRight className="ml-auto size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
+            </a>
+          </li>
           {socials.map((social) => (
             <li key={social.name}>
               <a

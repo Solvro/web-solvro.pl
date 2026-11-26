@@ -1,4 +1,6 @@
 export const MAIN_SITE = "https://solvro.pwr.edu.pl";
+export const BLOG = `${MAIN_SITE}/blog`;
+export const PORTFOLIO = `${MAIN_SITE}/portfolio`;
 
 export interface ProjectLink {
   name: string;
@@ -37,15 +39,6 @@ export const projects: ProjectLink[] = [
       "Obsługa wydarzeń od zapisów po wejściówki. Rejestracja uczestników, listy, komunikacja mailowa i odprawa na miejscu.",
     tags: ["Wydarzenia", "Zapisy"],
   },
-  {
-    name: "PromoCHATor",
-    slug: "promochator",
-    url: "https://promochator.solvro.pl",
-    host: "promochator.solvro.pl",
-    description:
-      "Znajdź promotora pracy dyplomowej. Opisz temat, a system dobierze prowadzących z PWr, których dorobek naukowy najlepiej do niego pasuje.",
-    tags: ["Praca dyplomowa", "AI"],
-  },
 ];
 
 export interface SocialLink {
@@ -73,6 +66,11 @@ export const socials: SocialLink[] = [
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/company/knsolvro/",
+    handle: "@knsolvro",
+  },
+  {
+    name: "TikTok",
+    url: "https://www.tiktok.com/@knsolvro",
     handle: "@knsolvro",
   },
 ];
