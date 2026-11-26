@@ -6,14 +6,16 @@ export function ProjectRedirect({ url }: { url: string }) {
   }, [url]);
 
   return (
-    <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col items-center justify-center gap-4 px-5 text-center">
+    <main className="grid min-h-dvh place-items-center px-5 text-center">
       <p className="text-sm text-muted-foreground">
         Przekierowywanie do{" "}
-        <a href={url} className="text-primary hover:underline">
+        <a
+          href={url}
+          className="text-primary underline-offset-4 hover:underline"
+        >
           {url}
         </a>
-        ...
       </p>
-    </div>
+    </main>
   );
 }

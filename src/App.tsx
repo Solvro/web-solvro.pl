@@ -20,7 +20,7 @@ function LinkCard({
   event: string;
   icon: ReactNode;
   label: string;
-  hint?: string;
+  hint: string;
   primary?: boolean;
 }) {
   return (
@@ -44,16 +44,14 @@ function LinkCard({
         {icon}
       </span>
       <span className="flex-1 truncate text-[15px] font-medium">{label}</span>
-      {hint !== undefined && (
-        <span
-          className={cn(
-            "hidden text-sm min-[360px]:inline",
-            primary ? "text-primary-foreground/60" : "text-muted-foreground",
-          )}
-        >
-          {hint}
-        </span>
-      )}
+      <span
+        className={cn(
+          "hidden text-sm min-[360px]:inline",
+          primary ? "text-primary-foreground/60" : "text-muted-foreground",
+        )}
+      >
+        {hint}
+      </span>
       <ArrowUpRight
         className={cn(
           "size-4 shrink-0 transition-colors",

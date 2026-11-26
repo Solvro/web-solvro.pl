@@ -9,7 +9,7 @@ treść (metadane, JSON-LD, `robots.txt`, `sitemap.xml`).
 
 ## Stack
 
-Vite + React + TypeScript, Tailwind CSS v4, shadcn/ui.
+Vite + React + TypeScript, Tailwind CSS v4.
 
 ## Rozwój
 
