@@ -1,234 +1,197 @@
-import { ArrowUpRight, ExternalLink, Newspaper } from "lucide-react";
+import { ArrowUpRight, Newspaper } from "lucide-react";
+import type { ReactNode } from "react";
 
 import { SocialIcon } from "@/components/social-icon";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { BLOG, MAIN_SITE, PORTFOLIO, projects, socials } from "@/data/site";
+import { cn } from "@/lib/utils";
 
-const facts = [
-  {
-    label: "Wydział",
-    value: "Informatyki i Telekomunikacji",
-  },
-  {
-    label: "Uczelnia",
-    value: "Politechnika Wrocławska",
-  },
-  {
-    label: "Kod",
-    value: "Otwarty na GitHubie",
-  },
-];
+const focusRing =
+  "outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
+function LinkCard({
+  href,
+  event,
+  icon,
+  label,
+  hint,
+  primary = false,
+}: {
+  href: string;
+  event: string;
+  icon: ReactNode;
+  label: string;
+  hint?: string;
+  primary?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      data-umami-event={event}
+      className={cn(
+        "group flex h-14 items-center gap-3.5 rounded-xl border px-4 transition-colors",
+        primary
+          ? "border-primary bg-primary text-primary-foreground hover:bg-primary/90"
+          : "bg-card hover:border-foreground/15 hover:bg-accent",
+        focusRing,
+      )}
+    >
+      <span
+        className={cn(
+          "grid size-5 shrink-0 place-items-center",
+          !primary && "text-foreground/80",
+        )}
+      >
+        {icon}
+      </span>
+      <span className="flex-1 truncate text-[15px] font-medium">{label}</span>
+      {hint !== undefined && (
+        <span
+          className={cn(
+            "hidden text-sm min-[360px]:inline",
+            primary ? "text-primary-foreground/60" : "text-muted-foreground",
+          )}
+        >
+          {hint}
+        </span>
+      )}
+      <ArrowUpRight
+        className={cn(
+          "size-4 shrink-0 transition-colors",
+          primary
+            ? "text-primary-foreground/60 group-hover:text-primary-foreground"
+            : "text-muted-foreground/70 group-hover:text-foreground",
+        )}
+      />
+    </a>
+  );
+}
 
 function App() {
   return (
-    <div className="mx-auto flex min-h-dvh w-full max-w-3xl flex-col gap-14 px-5 py-10 sm:px-6 sm:py-16">
+    <main className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-5 pt-16 pb-8 sm:pt-24">
       <header className="flex flex-col items-center text-center">
         <img
-          src="/logo/logo_solvro_mono.svg"
+          src="/logo/logo_solvro_color.png"
           alt="Logo Koła Naukowego Solvro"
-          width={102}
-          height={80}
-          className="h-20 w-auto drop-shadow-[0_0_40px_oklch(0.78_0.13_262/55%)]"
+          width={72}
+          height={56}
+          className="h-14 w-auto"
         />
-        <Badge variant="secondary" className="mt-6 rounded-full">
-          Koło naukowe Politechniki Wrocławskiej
-        </Badge>
-        <h1 className="mt-5 text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-          Solvro
+        <h1 className="mt-6 text-2xl font-semibold tracking-tight">
+          KN Solvro
         </h1>
-        <p className="mt-4 max-w-xl text-base text-pretty text-muted-foreground sm:text-lg">
-          Budujemy oprogramowanie, które realnie ułatwia studiowanie na PWr - od
-          układania planu zajęć, przez naukę do sesji, po organizację wydarzeń.
+        <p className="mt-1.5 max-w-xs text-sm text-pretty text-muted-foreground">
+          Koło naukowe Politechniki Wrocławskiej. Tworzymy aplikacje, które
+          ułatwiają studiowanie.
         </p>
       </header>
 
-      <section aria-labelledby="main-site">
-        <h2 id="main-site" className="sr-only">
-          Strona główna koła
-        </h2>
-        <a
-          href={MAIN_SITE}
-          data-umami-event="main-site-hero"
-          className="group block rounded-2xl border border-primary/40 bg-linear-to-br from-primary/20 to-transparent p-6 transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none sm:p-8"
-        >
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <p className="text-xs font-medium tracking-widest text-primary uppercase">
-                Strona główna
-              </p>
-              <p className="mt-2 text-xl font-semibold sm:text-2xl">
-                solvro.pwr.edu.pl
-              </p>
-              <p className="mt-2 text-sm text-pretty text-muted-foreground">
-                Poznaj koło, nasze sekcje i rekrutację. Tam znajdziesz pełne
-                informacje o Solvro.
-              </p>
-            </div>
-            <ArrowUpRight className="size-6 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </div>
-        </a>
-      </section>
-
-      <section aria-labelledby="projects" className="flex flex-col gap-5">
-        <div>
-          <h2 id="projects" className="text-xl font-semibold tracking-tight">
-            Nasze projekty
-          </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Narzędzia, z których na co dzień korzystają studenci Politechniki
-            Wrocławskiej.
-          </p>
-        </div>
-
-        <ul className="flex flex-col gap-4">
-          {projects.map((project) => (
-            <li key={project.name}>
-              <Card className="border-border/60 bg-card/60 py-0 backdrop-blur transition-colors hover:border-primary/50">
-                <CardContent className="p-5 sm:p-6">
-                  <a
-                    href={project.url}
-                    data-umami-event={`project-${project.name.toLowerCase()}`}
-                    className="group block rounded-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="text-lg font-semibold">
-                          {project.name}
-                        </h3>
-                        <p className="mt-0.5 font-mono text-xs text-primary/80">
-                          {project.host}
-                        </p>
-                      </div>
-                      <ArrowUpRight className="size-5 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
-                    </div>
-                    <p className="mt-3 text-sm text-pretty text-muted-foreground">
-                      {project.description}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <Badge key={tag} variant="outline">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </a>
-                </CardContent>
-              </Card>
-            </li>
-          ))}
-        </ul>
-
-        <Button asChild variant="outline" className="w-full">
-          <a href={PORTFOLIO} data-umami-event="portfolio">
-            I wiele więcej w naszym portfolio
-            <ArrowUpRight />
-          </a>
-        </Button>
-        <Button asChild variant="outline" className="w-full">
-          <a href="https://github.com/Solvro" data-umami-event="github-org">
-            Zobacz wszystkie projekty na GitHubie
-            <ExternalLink />
-          </a>
-        </Button>
-      </section>
-
-      <section aria-labelledby="about" className="flex flex-col gap-5">
-        <h2 id="about" className="text-xl font-semibold tracking-tight">
-          Kim jesteśmy
-        </h2>
-        <p className="text-sm text-pretty text-muted-foreground">
-          Solvro to koło naukowe działające przy Wydziale Informatyki i
-          Telekomunikacji Politechniki Wrocławskiej. Pracujemy w zespołach
-          projektowych - frontend, backend, mobile, design i&nbsp;zarządzanie
-          projektem - dowożąc aplikacje, które trafiają do realnych
-          użytkowników, a nie do szuflady. Nasz kod powstaje otwarcie
-          i&nbsp;jest dostępny na GitHubie.
-        </p>
-        <dl className="grid gap-4 sm:grid-cols-3">
-          {facts.map((fact) => (
-            <div
-              key={fact.label}
-              className="rounded-xl border border-border/60 bg-card/40 p-4"
-            >
-              <dt className="text-xs tracking-widest text-muted-foreground uppercase">
-                {fact.label}
-              </dt>
-              <dd className="mt-1 text-sm font-medium text-pretty">
-                {fact.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </section>
-
-      <section aria-labelledby="socials" className="flex flex-col gap-5">
-        <h2 id="socials" className="text-xl font-semibold tracking-tight">
-          Znajdź nas w sieci
-        </h2>
-        <ul className="grid gap-3 sm:grid-cols-2">
+      <nav aria-label="Linki" className="mt-10">
+        <ul className="flex flex-col gap-2.5">
           <li>
-            <a
+            <LinkCard
+              primary
+              href={MAIN_SITE}
+              event="main-site-hero"
+              label="Poznaj KN Solvro"
+              hint="solvro.pwr.edu.pl"
+              icon={
+                <img
+                  src="/logo/logo_solvro_mono.svg"
+                  alt=""
+                  width={20}
+                  height={16}
+                  className="h-4 w-auto"
+                />
+              }
+            />
+          </li>
+          <li>
+            <LinkCard
               href={BLOG}
-              data-umami-event="blog"
-              className="group flex items-center gap-3 rounded-xl border border-border/60 bg-card/40 p-4 transition-colors hover:border-primary/50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
-            >
-              <Newspaper className="size-5 shrink-0 text-primary" />
-              <div className="min-w-0">
-                <p className="text-sm font-medium">Blog</p>
-                <p className="truncate text-xs text-muted-foreground">
-                  Nowości z koła
-                </p>
-              </div>
-              <ArrowUpRight className="ml-auto size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
-            </a>
+              event="blog"
+              label="Blog"
+              hint="Nowości z koła"
+              icon={<Newspaper className="size-[18px]" strokeWidth={1.75} />}
+            />
           </li>
           {socials.map((social) => (
             <li key={social.name}>
-              <a
+              <LinkCard
                 href={social.url}
-                data-umami-event={`social-${social.name.toLowerCase()}`}
-                className="group flex items-center gap-3 rounded-xl border border-border/60 bg-card/40 p-4 transition-colors hover:border-primary/50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                event={`social-${social.name.toLowerCase()}`}
+                label={social.name}
+                hint={social.handle}
+                icon={<SocialIcon name={social.name} className="size-[18px]" />}
+              />
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <section aria-labelledby="projects" className="mt-12">
+        <h2
+          id="projects"
+          className="text-center text-xs font-medium text-muted-foreground"
+        >
+          Nasze aplikacje
+        </h2>
+        <ul className="mt-3 grid grid-cols-3 gap-2">
+          {projects.map((project) => (
+            <li key={project.slug}>
+              <a
+                href={project.url}
+                title={project.tagline}
+                data-umami-event={`project-${project.slug}`}
+                className={cn(
+                  "flex flex-col items-center gap-2 rounded-xl border border-border/70 bg-card px-2 pt-3.5 pb-3 transition-colors hover:border-foreground/15",
+                  focusRing,
+                )}
               >
-                <SocialIcon
-                  name={social.name}
-                  className="size-5 shrink-0 text-primary"
+                <img
+                  src={project.icon}
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="size-8 object-contain"
                 />
-                <div className="min-w-0">
-                  <p className="text-sm font-medium">{social.name}</p>
-                  <p className="truncate text-xs text-muted-foreground">
-                    {social.handle}
-                  </p>
-                </div>
-                <ArrowUpRight className="ml-auto size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
+                <span className="text-[13px] font-medium">{project.name}</span>
               </a>
             </li>
           ))}
         </ul>
+        <p className="mt-3 text-center">
+          <a
+            href={PORTFOLIO}
+            data-umami-event="portfolio"
+            className={cn(
+              "group inline-flex items-center gap-1 rounded-sm text-xs font-medium text-muted-foreground transition-colors hover:text-foreground",
+              focusRing,
+            )}
+          >
+            i wiele więcej w naszym portfolio
+            <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-px group-hover:-translate-y-px" />
+          </a>
+        </p>
       </section>
 
-      <footer className="mt-auto flex flex-col gap-4">
-        <Separator />
-        <p className="text-xs text-pretty text-muted-foreground">
-          Koło Naukowe Solvro · Wydział Informatyki i Telekomunikacji ·
-          Politechnika Wrocławska
-        </p>
-        <p className="text-xs text-pretty text-muted-foreground">
-          solvro.pl to nasza wizytówka i&nbsp;domena projektów. Pełne informacje
-          o&nbsp;kole znajdziesz na{" "}
-          <a
-            href={MAIN_SITE}
-            data-umami-event="main-site-footer"
-            className="text-primary hover:underline"
-          >
-            solvro.pwr.edu.pl
-          </a>
-          .
-        </p>
+      <footer className="mt-auto pt-10 text-center text-xs text-muted-foreground/80">
+        <a
+          href="https://github.com/Solvro"
+          data-umami-event="github-org"
+          className={cn(
+            "rounded-sm transition-colors hover:text-foreground",
+            focusRing,
+          )}
+        >
+          Open source na GitHubie
+        </a>
+        <span aria-hidden="true" className="mx-2">
+          ·
+        </span>
+        © {new Date().getFullYear()} KN Solvro
       </footer>
-    </div>
+    </main>
   );
 }
 
