@@ -8,3 +8,18 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
+    groups:
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      tailwindcss:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/vite"
+      vite:
+        patterns:
+          - "vite"
+          - "@vitejs/plugin-react"
