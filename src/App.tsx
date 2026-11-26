@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 const focusRing =
   "outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
+const currentYear = new Date().getFullYear();
+
 function LinkCard({
   href,
   event,
@@ -187,7 +189,7 @@ function App() {
         <span aria-hidden="true" className="mx-2">
           ·
         </span>
-        © {new Date().getFullYear()} KN Solvro
+        © {currentYear} KN Solvro
       </footer>
     </main>
   );
